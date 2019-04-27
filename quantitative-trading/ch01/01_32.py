@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 TAX_RATIO = 0.3 * 0.01                          # 0.3%
-INIT_INVESTMENT = 100000000000
+INIT_INVESTMENT = 200000000000
 
 
 def backtest(start, end, investment):
