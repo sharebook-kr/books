@@ -7,3 +7,7 @@ def hap(c, d):
 
 result = hap(3, 4)
 print(result)
+
+print(c)
+print(d)
+print(ret)
