@@ -3,19 +3,20 @@ import pandas as pd
 from pandas import Series
 
 
-def run_monthly_low_per(year, month, portfolio_num=5):
+def run_annual_pbr_per_combo(year, month=6, portfolio_num=30):
     # 거래일
     business_day = stock.get_business_days(year, month)
     start = business_day[0]
+    business_day = stock.get_business_days(year+1, month-1)
     end = business_day[-1]
 
-    # PER 0인 종목 필터링
+    # 2.5 <= PER  <= 10
     df = stock.get_market_fundamental_by_ticker(date=start, market="KOSPI")
-    cond = df["PER"] != 0
+    cond = (df["PER"] >= 2.5) & (df["PER"] <= 10)           # 괄호 주의
     df = df[cond]
 
-    # PER이 낮은 n개 종목 선정
-    low_per = df["PER"].nsmallest(n=portfolio_num)
+    # PBR이 낮은 30 종목
+    low_per = df["PBR"].nsmallest(n=portfolio_num)
 
     # 등락률
     fluctuation = stock.get_market_price_change_by_ticker(start, end)
@@ -26,20 +27,23 @@ def run_monthly_low_per(year, month, portfolio_num=5):
     return ror
 
 
+# 기본 설정
+month = 6
+portfolio_num = 30
+
 index = []
 data = []
 
 for year in range(2010, 2019):
-    for month in range(1, 13):
-        arg = "{}-{:>02}-01".format(year, month)
-        date = pd.to_datetime(arg)
-        print(date)
-        ror = run_monthly_low_per(year, month, portfolio_num=5)
+    arg = "{}-{:>02}-01".format(year, month)
+    date = pd.to_datetime(arg)
+    print(date)
+    ror = run_annual_pbr_per_combo(year, month, portfolio_num)
 
-        index.append(date)
-        data.append(ror)
+    index.append(date)
+    data.append(ror)
 
 s = Series(data=data, index=index)
-s.to_excel("ror.xlsx")
+s.to_excel("pbr_per_combo.xlsx")
 print(s.cumprod().iloc[-1])
 
