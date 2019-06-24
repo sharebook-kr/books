@@ -7,11 +7,14 @@ data = [
     ["005760", "ACTS", '1,185'],
 ]
 
+columns = ["종목코드", "종목명", "현재가"]
+df = DataFrame(data=data, columns=columns)
+print(df)
+
+# 컴마 제거
 def remove_comma(x):
     return x.replace(',', '')
 
-columns = ["종목코드", "종목명", "현재가"]
-df = DataFrame(data=data, columns=columns)
 df['현재가'] = df['현재가'].apply(remove_comma)
 print(df)
 print(df.dtypes)
