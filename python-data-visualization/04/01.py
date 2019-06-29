@@ -4,7 +4,8 @@ import dash_html_components as html
 app = dash.Dash()
 
 app.layout = html.Div([
-    html.H1("Hello Dash")
+    html.P("first paragraph"),
+    html.P("second paragraph")
 ])
 
 if __name__ == "__main__":
