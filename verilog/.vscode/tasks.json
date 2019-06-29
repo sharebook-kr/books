@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",  
+    "tasks": [
+        {
+            "label": "Simulaion",
+            "type": "shell",
+            "command": "cd ${fileDirname} ; iverilog -o ${fileBasename}.vvp ${fileBasename} ; vvp -N ${fileBasename}.vvp",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Wave",
+            "type": "shell",
+            "command": "cd ${fileDirname} ; gtkwave out.vcd",
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}
