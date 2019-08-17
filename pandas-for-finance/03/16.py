@@ -1,8 +1,7 @@
 from pandas import Series
 
-data = [42500, 42550, 41800, 42550, 42650]
-index = ['2019-05-31', '2019-05-30', '2019-05-29', '2019-05-28', '2019-05-27']
-s = Series(data=data, index=index)
-cond = s > 42000
-print(cond)
-print(type(cond))
+high = Series([42800, 42700, 42100, 42950, 43000])
+low = Series([42150, 42150, 41300, 42150, 42350])
+
+diff = high - low
+print(diff)

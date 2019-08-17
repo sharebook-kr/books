@@ -1,7 +1,6 @@
 from pandas import Series
 
-high = Series([42800, 42700, 42100, 42950, 43000])
-low = Series([42150, 42150, 41300, 42150, 42350])
-
-diff = high - low
-print(diff)
+mine = Series([10, 20, 30], index=['NAVER', 'SKT', 'KT'])
+wife = Series([10, 30, 20], index=['SKT', 'KT', 'NAVER'])
+total = mine + wife
+print(total)

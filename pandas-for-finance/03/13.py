@@ -1,5 +1,8 @@
 from pandas import Series
 
-data1 = Series([10, 20, 30], index=['NAVER', 'SKT', 'KT'])
-data2 = data1 * 10
-print(data2)
+data = [1000, 2000, 3000]
+index = ["메로나", "구구콘", "하겐다즈"]
+s = Series(data=data, index=index)
+
+print(s.drop('메로나'))
+#print(s.drop(0))

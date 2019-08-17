@@ -6,6 +6,7 @@ index = ['2019-05-31', '2019-05-30', '2019-05-29', '2019-05-28', '2019-05-27']
 
 open = Series(data=open, index=index)
 close = Series(data=close, index=index)
+diff = close - open
 
 cond = close > open
-print(cond)
+print(diff[cond])
