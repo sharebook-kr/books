@@ -1,8 +1,6 @@
-a = 4
-b = 0
+class 붕어빵틀:
+    def __init__(self, 앙꼬):
+        self.앙꼬 = 앙꼬
 
-try:
-    c = a / b
-except:
-    pass
-
+붕어빵1 = 붕어빵틀("초코맛")
+붕어빵2 = 붕어빵틀("딸기맛")

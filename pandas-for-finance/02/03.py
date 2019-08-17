@@ -1,8 +1,13 @@
+a = 3
+b = 4
 
-def myprint(a, b, c):
-    print(a)
-    print(b)
-    print(c)
+def hap(c, d):
+    ret = c + d
+    return ret
 
+result = hap(3, 4)
+print(result)
 
-myprint(1, 2, 3)
+print(c)
+print(d)
+print(ret)

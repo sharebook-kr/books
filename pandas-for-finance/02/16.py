@@ -1,9 +1,11 @@
-class MyClass:
-    data = 3
+class 붕어빵틀:
+    def 앙꼬넣기(self, 앙꼬):
+        self.앙꼬 = 앙꼬
 
-a = MyClass()
-b = MyClass()
-a.data = 5
+붕어빵1 = 붕어빵틀()
+#붕어빵틀.앙꼬넣기(붕어빵1, "초코맛")
+붕어빵1.앙꼬넣기("초코맛")
 
-print(a.data)
-print(b.data)
+붕어빵2 = 붕어빵틀()
+#붕어빵틀.앙꼬넣기(붕어빵2, "딸기맛")
+붕어빵2.앙꼬넣기("딸기맛")
